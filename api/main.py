@@ -20,6 +20,10 @@ client = OpenAI()
 class TaskRequest(BaseModel):
     prompt: str
 
+@app.get("/")
+def read_root():
+    return {"message": "TaskBot API is running!"}
+
 @app.post("/generate")
 async def generate_tasks(prompt : str):
     try: 
